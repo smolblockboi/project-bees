@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu5r5thrwavvv"]
+
+[ext_resource type="Script" path="res://gui/interact_tooltip_panel.gd" id="1_m2ekc"]
+[ext_resource type="LabelSettings" uid="uid://c3su01fxvus54" path="res://fonts/8px_pixel_settings.tres" id="2_udncy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wakq2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0f4mb"]
+color = Color(1, 1, 1, 1)
+
+[node name="InteractTooltipPanel" type="PanelContainer"]
+offset_right = 26.0
+offset_bottom = 38.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wakq2")
+script = ExtResource("1_m2ekc")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name"
+label_settings = ExtResource("2_udncy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_0f4mb")
+
+[node name="InfoLabel" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Info"
+label_settings = ExtResource("2_udncy")
+vertical_alignment = 1

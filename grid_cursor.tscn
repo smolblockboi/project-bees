@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhqnv2hkpd55e"]
+
+[ext_resource type="Texture2D" uid="uid://de8bxr0gxmes3" path="res://sprites.aseprite" id="1_pjc3f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11tc8"]
+atlas = ExtResource("1_pjc3f")
+region = Rect2(0, 48, 16, 16)
+
+[node name="GridCursor" type="Sprite2D"]
+texture = SubResource("AtlasTexture_11tc8")

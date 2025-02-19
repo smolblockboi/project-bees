@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2b32q4ahegjt"]
+
+[ext_resource type="Script" path="res://interact_button.gd" id="1_atyfs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1v5jc"]
+
+[sub_resource type="Theme" id="Theme_2eeok"]
+TooltipPanel/styles/panel = SubResource("StyleBoxEmpty_1v5jc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8nnw"]
+content_margin_left = 1.0
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[node name="InteractButton" type="Button"]
+z_index = 1
+z_as_relative = false
+offset_right = 8.0
+offset_bottom = 8.0
+theme = SubResource("Theme_2eeok")
+theme_override_styles/focus = SubResource("StyleBoxFlat_d8nnw")
+flat = true
+script = ExtResource("1_atyfs")

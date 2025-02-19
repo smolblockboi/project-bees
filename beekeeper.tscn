@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7csofag283fp"]
+
+[ext_resource type="Texture2D" uid="uid://de8bxr0gxmes3" path="res://sprites.aseprite" id="1_1rs58"]
+[ext_resource type="Script" path="res://beekeeper.gd" id="2_2u8re"]
+[ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="3_8ytqy"]
+[ext_resource type="Script" path="res://traits/trait_handler.gd" id="4_t7s0h"]
+[ext_resource type="Script" path="res://traits/trait.gd" id="5_bxx57"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8met"]
+atlas = ExtResource("1_1rs58")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_st347"]
+script = ExtResource("5_bxx57")
+trait_name = "smolness"
+trait_value = 1.0
+
+[node name="Beekeeper" type="Sprite2D" node_paths=PackedStringArray("trait_handler")]
+texture = SubResource("AtlasTexture_w8met")
+script = ExtResource("2_2u8re")
+trait_handler = NodePath("TraitHandler")
+
+[node name="InteractButton" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_8ytqy")]
+offset_left = -8.0
+offset_top = -5.0
+parent = NodePath("..")
+
+[node name="TraitHandler" type="Node" parent="."]
+script = ExtResource("4_t7s0h")
+base_traits = Array[ExtResource("5_bxx57")]([SubResource("Resource_st347")])

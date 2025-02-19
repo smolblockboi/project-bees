@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=2 format=3 uid="uid://0dicgln5io61"]
+
+[ext_resource type="Script" path="res://traits/trait.gd" id="1_tj2ri"]
+
+[resource]
+script = ExtResource("1_tj2ri")
+trait_name = "production rate"
+trait_value = 1.0

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqpdgy1ex70xx"]
+
+[ext_resource type="Script" path="res://components/production_timer.gd" id="1_cttod"]
+
+[node name="ProductionTimer" type="Timer"]
+script = ExtResource("1_cttod")

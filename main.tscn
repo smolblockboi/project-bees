@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=4 uid="uid://daetqeec8sb4b"]
+
+[ext_resource type="TileSet" uid="uid://b1u1ty4i6j2xl" path="res://main_tile_set.tres" id="1_72qnu"]
+[ext_resource type="Script" path="res://tile_map.gd" id="2_3f67f"]
+[ext_resource type="PackedScene" uid="uid://d1cjcrivc6qia" path="res://hud.tscn" id="2_s2p32"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAATAAkAAAAAAAAAAQATAA0AAAAAAAAAAQAQAAkAAAAAAAAAAQAWAAkAAAAAAAAAAQAWAA0AAAAAAAAAAQAQAA0AAAAAAAAAAQAZAAkAAAAAAAAAAQAZAA0AAAAAAAAAAQANAAkAAAAAAAAAAQANAA0AAAAAAAAAAQAQAAcAAAAAAAAABAATAAcAAAAAAAAABAAWAAcAAAAAAAAABAAWAA8AAAAAAAAABQAQAA8AAAAAAAAABQANAAcAAAAAAAAABAAZAAcAAAAAAAAABAAZAA8AAAAAAAAABQANAA8AAAAAAAAABQATAAsAAAAAAAAAAgATAA8AAAAAAAAABQA=")
+tile_set = ExtResource("1_72qnu")
+script = ExtResource("2_3f67f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(312, 184)
+zoom = Vector2(2, 2)
+
+[node name="Hud" parent="." instance=ExtResource("2_s2p32")]

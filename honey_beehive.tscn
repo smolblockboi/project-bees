@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmpvh4fqayo2a"]
+
+[ext_resource type="PackedScene" uid="uid://c1gnoc020cdsm" path="res://beehive.tscn" id="1_w68lw"]
+[ext_resource type="Script" path="res://honey_beehive.gd" id="2_cola2"]
+
+[node name="HoneyBeehive" instance=ExtResource("1_w68lw")]
+modulate = Color(1, 0.556863, 0, 1)
+script = ExtResource("2_cola2")

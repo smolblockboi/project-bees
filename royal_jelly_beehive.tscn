@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://doyjqej2g5rt8"]
+
+[ext_resource type="PackedScene" uid="uid://c1gnoc020cdsm" path="res://beehive.tscn" id="1_rnlv2"]
+[ext_resource type="Script" path="res://royal_jelly_beehive.gd" id="2_hxxvc"]
+
+[node name="RoyalJellyBeehive" instance=ExtResource("1_rnlv2")]
+modulate = Color(1, 0, 1, 1)
+script = ExtResource("2_hxxvc")

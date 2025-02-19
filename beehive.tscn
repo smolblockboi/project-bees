@@ -1,0 +1,107 @@
+[gd_scene load_steps=13 format=3 uid="uid://c1gnoc020cdsm"]
+
+[ext_resource type="Texture2D" uid="uid://de8bxr0gxmes3" path="res://sprites.aseprite" id="1_boeiu"]
+[ext_resource type="Script" path="res://beehive.gd" id="2_lpcsj"]
+[ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="3_ap4ro"]
+[ext_resource type="Script" path="res://components/production_timer.gd" id="4_3ftok"]
+[ext_resource type="Script" path="res://traits/trait_handler.gd" id="4_bcewy"]
+[ext_resource type="Script" path="res://traits/trait.gd" id="5_vaa52"]
+[ext_resource type="Resource" uid="uid://m4g73e4mg1mt" path="res://traits/base_production_quantity_trait.tres" id="6_1jikp"]
+[ext_resource type="Resource" uid="uid://0dicgln5io61" path="res://traits/base_production_rate_trait.tres" id="7_px53t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4duqo"]
+atlas = ExtResource("1_boeiu")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m578"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhqo2"]
+bg_color = Color(1, 0.792157, 0.156863, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fg3vh"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(16, 16, 1)
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -20.0
+tangential_accel_max = 20.0
+
+[node name="Beehive" type="Sprite2D" node_paths=PackedStringArray("trait_handler", "production_timer")]
+texture = SubResource("AtlasTexture_4duqo")
+script = ExtResource("2_lpcsj")
+trait_handler = NodePath("TraitHandler")
+production_timer = NodePath("ProductionTimer")
+
+[node name="InteractButton" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_ap4ro")]
+offset_left = -8.0
+offset_top = -8.0
+parent = NodePath("..")
+
+[node name="ProductionTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+script = ExtResource("4_3ftok")
+
+[node name="ResourceProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+z_index = 1
+z_as_relative = false
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 25.0
+offset_bottom = 11.0
+rotation = -1.5708
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_3m578")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mhqo2")
+show_percentage = false
+
+[node name="BeesParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+process_material = SubResource("ParticleProcessMaterial_fg3vh")
+
+[node name="FlowerRaycasts" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Up" type="RayCast2D" parent="FlowerRaycasts"]
+target_position = Vector2(0, -16)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Down" type="RayCast2D" parent="FlowerRaycasts"]
+target_position = Vector2(0, 16)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Left" type="RayCast2D" parent="FlowerRaycasts"]
+target_position = Vector2(-16, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Right" type="RayCast2D" parent="FlowerRaycasts"]
+target_position = Vector2(16, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="TraitHandler" type="Node" parent="." node_paths=PackedStringArray("raycast_root")]
+script = ExtResource("4_bcewy")
+raycast_root = NodePath("../FlowerRaycasts")
+base_traits = Array[ExtResource("5_vaa52")]([ExtResource("6_1jikp"), ExtResource("7_px53t")])
+
+[node name="TraitCheckTimer" type="Timer" parent="TraitHandler"]
+autostart = true
