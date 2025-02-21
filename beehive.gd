@@ -4,6 +4,7 @@ class_name Beehive extends Sprite2D
 signal harvested
 
 
+@export var interact_button : InteractButton
 @export var trait_handler : TraitHandler
 @export var production_timer: ProductionTimer
 
@@ -30,6 +31,10 @@ func _process(delta: float) -> void:
 
 func harvest_from_object():
 	harvested.emit(object_id, randf_range(1, 5))
+
+
+func emulate_interact_press():
+	interact_button.pressed.emit()
 
 
 func _on_interact_pressed():

@@ -23,9 +23,9 @@ StatTracker="*res://globals/stat_tracker.gd"
 [display]
 
 window/size/viewport_width=640
-window/size/viewport_height=360
+window/size/viewport_height=480
 window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/window_height_override=960
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 
@@ -46,10 +46,16 @@ left_click={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(46, 19),"global_position":Vector2(55, 65),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+right_click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(159, 9),"global_position":Vector2(168, 55),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
 
 [layer_names]
 
 2d_physics/layer_2="flowers"
+2d_physics/layer_3="beehives"
 
 [rendering]
 

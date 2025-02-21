@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://doyjqej2g5rt8"]
+[gd_scene load_steps=5 format=3 uid="uid://doyjqej2g5rt8"]
 
 [ext_resource type="PackedScene" uid="uid://c1gnoc020cdsm" path="res://beehive.tscn" id="1_rnlv2"]
 [ext_resource type="Script" path="res://royal_jelly_beehive.gd" id="2_hxxvc"]
+[ext_resource type="Texture2D" uid="uid://ncgwr832qxet" path="res://beehives.aseprite" id="2_rvm17"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8c00"]
+atlas = ExtResource("2_rvm17")
+region = Rect2(0, 32, 16, 16)
 
 [node name="RoyalJellyBeehive" instance=ExtResource("1_rnlv2")]
-modulate = Color(1, 0, 1, 1)
+texture = SubResource("AtlasTexture_l8c00")
 script = ExtResource("2_hxxvc")

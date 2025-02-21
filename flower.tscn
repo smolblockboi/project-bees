@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1owjfx4npu7e"]
+[gd_scene load_steps=9 format=3 uid="uid://c1owjfx4npu7e"]
 
 [ext_resource type="Texture2D" uid="uid://de8bxr0gxmes3" path="res://sprites.aseprite" id="1_qi5mr"]
 [ext_resource type="Script" path="res://flower.gd" id="2_fd17t"]
@@ -14,25 +14,14 @@ region = Rect2(0, 32, 16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfxe1"]
 size = Vector2(8, 8)
 
-[sub_resource type="Resource" id="Resource_lt6nl"]
-script = ExtResource("5_jf3ko")
-trait_name = "beefiness"
-trait_value = 10.0
-
-[sub_resource type="Resource" id="Resource_vvcid"]
-script = ExtResource("5_jf3ko")
-trait_name = "automation"
-trait_value = 1.0
-
 [node name="Flower" type="Sprite2D" node_paths=PackedStringArray("trait_handler")]
 texture = SubResource("AtlasTexture_bhr5i")
 script = ExtResource("2_fd17t")
 trait_handler = NodePath("TraitHandler")
 
-[node name="InteractButton" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_th8r7")]
+[node name="InteractButton" parent="." instance=ExtResource("3_th8r7")]
 offset_left = -8.0
 offset_top = -8.0
-parent = NodePath("..")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
@@ -43,4 +32,4 @@ shape = SubResource("RectangleShape2D_yfxe1")
 
 [node name="TraitHandler" type="Node" parent="."]
 script = ExtResource("4_8v2g0")
-base_traits = Array[ExtResource("5_jf3ko")]([ExtResource("6_mc1jd"), SubResource("Resource_lt6nl"), SubResource("Resource_vvcid")])
+base_traits = Array[ExtResource("5_jf3ko")]([ExtResource("6_mc1jd")])

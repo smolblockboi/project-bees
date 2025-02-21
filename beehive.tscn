@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1gnoc020cdsm"]
+[gd_scene load_steps=14 format=3 uid="uid://c1gnoc020cdsm"]
 
-[ext_resource type="Texture2D" uid="uid://de8bxr0gxmes3" path="res://sprites.aseprite" id="1_boeiu"]
+[ext_resource type="Texture2D" uid="uid://ncgwr832qxet" path="res://beehives.aseprite" id="1_14cmh"]
 [ext_resource type="Script" path="res://beehive.gd" id="2_lpcsj"]
 [ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="3_ap4ro"]
 [ext_resource type="Script" path="res://components/production_timer.gd" id="4_3ftok"]
@@ -10,8 +10,8 @@
 [ext_resource type="Resource" uid="uid://0dicgln5io61" path="res://traits/base_production_rate_trait.tres" id="7_px53t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4duqo"]
-atlas = ExtResource("1_boeiu")
-region = Rect2(0, 16, 16, 16)
+atlas = ExtResource("1_14cmh")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m578"]
 bg_color = Color(0, 0, 0, 1)
@@ -37,16 +37,19 @@ gravity = Vector3(0, 0, 0)
 tangential_accel_min = -20.0
 tangential_accel_max = 20.0
 
-[node name="Beehive" type="Sprite2D" node_paths=PackedStringArray("trait_handler", "production_timer")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dygcp"]
+size = Vector2(8, 8)
+
+[node name="Beehive" type="Sprite2D" node_paths=PackedStringArray("interact_button", "trait_handler", "production_timer")]
 texture = SubResource("AtlasTexture_4duqo")
 script = ExtResource("2_lpcsj")
+interact_button = NodePath("InteractButton")
 trait_handler = NodePath("TraitHandler")
 production_timer = NodePath("ProductionTimer")
 
-[node name="InteractButton" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_ap4ro")]
+[node name="InteractButton" parent="." instance=ExtResource("3_ap4ro")]
 offset_left = -8.0
 offset_top = -8.0
-parent = NodePath("..")
 
 [node name="ProductionTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -57,11 +60,18 @@ script = ExtResource("4_3ftok")
 unique_name_in_owner = true
 z_index = 1
 z_as_relative = false
-offset_left = 9.0
-offset_top = 8.0
-offset_right = 25.0
-offset_bottom = 11.0
-rotation = -1.5708
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -6.0
+offset_right = -4.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.57079
 mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_3m578")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mhqo2")
@@ -105,3 +115,10 @@ base_traits = Array[ExtResource("5_vaa52")]([ExtResource("6_1jikp"), ExtResource
 
 [node name="TraitCheckTimer" type="Timer" parent="TraitHandler"]
 autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_dygcp")

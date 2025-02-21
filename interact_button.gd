@@ -1,17 +1,17 @@
 class_name InteractButton extends Button
 
 
-@export var parent : Node2D
+signal emulated_pressed
 
 
 func _ready() -> void:
-	pressed.connect(parent._on_interact_pressed)
+	pressed.connect(get_parent()._on_interact_pressed)
 	mouse_entered.connect(_on_hovered)
 
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel") and has_focus():
-		parent.queue_free()
+		get_parent().queue_free()
 
 
 func update_tooltip(dict : Dictionary):
@@ -25,8 +25,8 @@ func update_tooltip(dict : Dictionary):
 
 
 func _on_hovered():
-	var new_tooltip_info = parent.trait_handler.get_total_traits_mod().duplicate()
-	new_tooltip_info["name"] = parent.name
+	var new_tooltip_info = get_parent().trait_handler.get_total_traits_mod().duplicate()
+	new_tooltip_info["name"] = get_parent().name
 	update_tooltip(new_tooltip_info)
 
 

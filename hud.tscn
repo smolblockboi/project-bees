@@ -1,20 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1cjcrivc6qia"]
+[gd_scene load_steps=10 format=3 uid="uid://d1cjcrivc6qia"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_7dlwg"]
-[ext_resource type="Texture2D" uid="uid://de8bxr0gxmes3" path="res://sprites.aseprite" id="2_aj825"]
+[ext_resource type="StyleBox" uid="uid://lkvrmu3xqy1t" path="res://gui/interact_tooltip_panel.tres" id="2_deik8"]
+[ext_resource type="Texture2D" uid="uid://cn6hrhexcku0n" path="res://bee_resources.aseprite" id="2_ppw7f"]
+[ext_resource type="FontFile" uid="uid://dh2sugylqlk6t" path="res://fonts/Kenney Mini.ttf" id="2_xkgo0"]
+
+[sub_resource type="Theme" id="Theme_fis4y"]
+Label/font_sizes/font_size = 8
+Label/fonts/font = ExtResource("2_xkgo0")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hl0e5"]
-atlas = ExtResource("2_aj825")
-region = Rect2(0, 16, 16, 16)
+atlas = ExtResource("2_ppw7f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21vtw"]
+atlas = ExtResource("2_ppw7f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go536"]
+atlas = ExtResource("2_ppw7f")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoenb"]
+atlas = ExtResource("2_ppw7f")
+region = Rect2(48, 0, 16, 16)
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_7dlwg")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-offset_left = 8.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -296.0
 offset_top = 8.0
-offset_right = 48.0
-offset_bottom = 31.0
+offset_right = 312.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme = SubResource("Theme_fis4y")
+theme_override_styles/panel = ExtResource("2_deik8")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -23,60 +47,62 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PollenHBox" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="PollenHBox" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/PollenHBox"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/PollenHBox"]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = SubResource("AtlasTexture_hl0e5")
-stretch_mode = 3
+stretch_mode = 5
 
-[node name="PollenLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PollenHBox"]
+[node name="PollenLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/PollenHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="NectarHBox" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="NectarHBox" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/NectarHBox"]
-self_modulate = Color(0, 1, 1, 1)
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/NectarHBox"]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-texture = SubResource("AtlasTexture_hl0e5")
-stretch_mode = 3
+texture = SubResource("AtlasTexture_21vtw")
+stretch_mode = 5
 
-[node name="NectarLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/NectarHBox"]
+[node name="NectarLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/NectarHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="HoneyHBox" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HoneyHBox" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HoneyHBox"]
-self_modulate = Color(1, 0.556863, 0, 1)
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/HoneyHBox"]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-texture = SubResource("AtlasTexture_hl0e5")
-stretch_mode = 3
+texture = SubResource("AtlasTexture_go536")
+stretch_mode = 5
 
-[node name="HoneyLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HoneyHBox"]
+[node name="HoneyLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/HoneyHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="RoyalJellyHBox" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="RoyalJellyHBox" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/RoyalJellyHBox"]
-self_modulate = Color(1, 0, 1, 1)
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/RoyalJellyHBox"]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-texture = SubResource("AtlasTexture_hl0e5")
-stretch_mode = 3
+texture = SubResource("AtlasTexture_xoenb")
+stretch_mode = 5
 
-[node name="RoyalJellyLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/RoyalJellyHBox"]
+[node name="RoyalJellyLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/RoyalJellyHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"

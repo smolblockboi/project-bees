@@ -1,30 +1,218 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7csofag283fp"]
+[gd_scene load_steps=20 format=3 uid="uid://c7csofag283fp"]
 
-[ext_resource type="Texture2D" uid="uid://de8bxr0gxmes3" path="res://sprites.aseprite" id="1_1rs58"]
+[ext_resource type="Texture2D" uid="uid://cqhft3vp8yb0n" path="res://beekeeper.aseprite" id="1_vlqj1"]
 [ext_resource type="Script" path="res://beekeeper.gd" id="2_2u8re"]
 [ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="3_8ytqy"]
 [ext_resource type="Script" path="res://traits/trait_handler.gd" id="4_t7s0h"]
 [ext_resource type="Script" path="res://traits/trait.gd" id="5_bxx57"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w8met"]
-atlas = ExtResource("1_1rs58")
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqbjw"]
+atlas = ExtResource("1_vlqj1")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0o8f"]
+atlas = ExtResource("1_vlqj1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt2tx"]
+atlas = ExtResource("1_vlqj1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlhrt"]
+atlas = ExtResource("1_vlqj1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at018"]
+atlas = ExtResource("1_vlqj1")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_456lq"]
+atlas = ExtResource("1_vlqj1")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svo7y"]
+atlas = ExtResource("1_vlqj1")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2xxa"]
+atlas = ExtResource("1_vlqj1")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjtpu"]
+atlas = ExtResource("1_vlqj1")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjgra"]
+atlas = ExtResource("1_vlqj1")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sstp7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqbjw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_g0o8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt2tx")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_qlhrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at018")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_456lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svo7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_456lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svo7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_456lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svo7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_456lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svo7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_456lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svo7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_456lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svo7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_456lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svo7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_456lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svo7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_456lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svo7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_456lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svo7y")
+}],
+"loop": false,
+"name": &"interact",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_n2xxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjtpu")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_wjgra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjtpu")
+}],
+"loop": true,
+"name": &"move",
+"speed": 8.0
+}]
 
 [sub_resource type="Resource" id="Resource_st347"]
 script = ExtResource("5_bxx57")
 trait_name = "smolness"
 trait_value = 1.0
 
-[node name="Beekeeper" type="Sprite2D" node_paths=PackedStringArray("trait_handler")]
-texture = SubResource("AtlasTexture_w8met")
+[sub_resource type="Resource" id="Resource_d5cgy"]
+script = ExtResource("5_bxx57")
+trait_name = "automation"
+trait_value = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uq6kw"]
+size = Vector2(8, 8)
+
+[node name="Beekeeper" type="AnimatedSprite2D" node_paths=PackedStringArray("trait_handler")]
+sprite_frames = SubResource("SpriteFrames_sstp7")
+autoplay = "idle"
 script = ExtResource("2_2u8re")
 trait_handler = NodePath("TraitHandler")
 
-[node name="InteractButton" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_8ytqy")]
+[node name="InteractButton" parent="." instance=ExtResource("3_8ytqy")]
 offset_left = -8.0
 offset_top = -5.0
-parent = NodePath("..")
 
 [node name="TraitHandler" type="Node" parent="."]
 script = ExtResource("4_t7s0h")
-base_traits = Array[ExtResource("5_bxx57")]([SubResource("Resource_st347")])
+base_traits = Array[ExtResource("5_bxx57")]([SubResource("Resource_st347"), SubResource("Resource_d5cgy")])
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_uq6kw")
+
+[node name="AdjacentRaycasts" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Up" type="RayCast2D" parent="AdjacentRaycasts"]
+target_position = Vector2(0, -16)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Down" type="RayCast2D" parent="AdjacentRaycasts"]
+target_position = Vector2(0, 16)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Left" type="RayCast2D" parent="AdjacentRaycasts"]
+target_position = Vector2(-16, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Right" type="RayCast2D" parent="AdjacentRaycasts"]
+target_position = Vector2(16, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false

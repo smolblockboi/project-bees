@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://cn6hrhexcku0n"
+path="res://.godot/imported/bee_resources.aseprite-b3103577c6f2d7a7083f25c1a5e04acb.res"
+
+[deps]
+
+source_file="res://bee_resources.aseprite"
+dest_files=["res://.godot/imported/bee_resources.aseprite-b3103577c6f2d7a7083f25c1a5e04acb.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
