@@ -1,18 +1,20 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://b1u1ty4i6j2xl"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://b1u1ty4i6j2xl"]
 
-[ext_resource type="PackedScene" uid="uid://c1gnoc020cdsm" path="res://beehive.tscn" id="1_ujo8a"]
+[ext_resource type="PackedScene" uid="uid://c1gnoc020cdsm" path="res://beehives/beehive.tscn" id="1_ouesq"]
 [ext_resource type="PackedScene" uid="uid://c7csofag283fp" path="res://beekeeper.tscn" id="2_cqhnd"]
 [ext_resource type="PackedScene" uid="uid://c1owjfx4npu7e" path="res://flower.tscn" id="3_br8jw"]
-[ext_resource type="PackedScene" uid="uid://cmpvh4fqayo2a" path="res://honey_beehive.tscn" id="4_1qmiw"]
-[ext_resource type="PackedScene" uid="uid://doyjqej2g5rt8" path="res://royal_jelly_beehive.tscn" id="5_cexcs"]
+[ext_resource type="PackedScene" uid="uid://cmpvh4fqayo2a" path="res://beehives/honey_beehive.tscn" id="4_q4anj"]
+[ext_resource type="PackedScene" uid="uid://doyjqej2g5rt8" path="res://beehives/royal_jelly_beehive.tscn" id="5_2obh2"]
+[ext_resource type="PackedScene" uid="uid://0g70tpuv4qnn" path="res://blueprints/blueprint.tscn" id="6_jh0ek"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_v5x4u"]
 resource_name = "Object Scenes"
-scenes/1/scene = ExtResource("1_ujo8a")
+scenes/1/scene = ExtResource("1_ouesq")
 scenes/2/scene = ExtResource("2_cqhnd")
 scenes/3/scene = ExtResource("3_br8jw")
-scenes/4/scene = ExtResource("4_1qmiw")
-scenes/5/scene = ExtResource("5_cexcs")
+scenes/4/scene = ExtResource("4_q4anj")
+scenes/5/scene = ExtResource("5_2obh2")
+scenes/7/scene = ExtResource("6_jh0ek")
 
 [resource]
 sources/0 = SubResource("TileSetScenesCollectionSource_v5x4u")

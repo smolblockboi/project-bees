@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf40prwvhuoxh"]
+
+[ext_resource type="Material" uid="uid://c45jekwelpys2" path="res://bees/pollen_bees.tres" id="1_wkpkg"]
+
+[node name="BeesParticles" type="GPUParticles2D"]
+process_material = ExtResource("1_wkpkg")

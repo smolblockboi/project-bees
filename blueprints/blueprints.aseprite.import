@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://cv5t4hcsg65wd"
+path="res://.godot/imported/blueprints.aseprite-6210939e073bc75fe1d9f45dc87e3ef0.res"
+
+[deps]
+
+source_file="res://blueprints/blueprints.aseprite"
+dest_files=["res://.godot/imported/blueprints.aseprite-6210939e073bc75fe1d9f45dc87e3ef0.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false

@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://0g70tpuv4qnn"]
+
+[ext_resource type="Texture2D" uid="uid://cv5t4hcsg65wd" path="res://blueprints/blueprints.aseprite" id="1_sfagv"]
+[ext_resource type="Script" path="res://blueprints/blueprint.gd" id="2_g8824"]
+[ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="2_lxeou"]
+[ext_resource type="Script" path="res://components/production_timer.gd" id="4_2qage"]
+[ext_resource type="Script" path="res://blueprints/blueprint_data.gd" id="4_jvb8i"]
+[ext_resource type="Script" path="res://traits/trait_handler.gd" id="7_i0p6f"]
+[ext_resource type="Script" path="res://traits/trait.gd" id="7_r1uh6"]
+
+[sub_resource type="Resource" id="Resource_emi1r"]
+script = ExtResource("4_jvb8i")
+scene = "flower"
+
+[sub_resource type="Resource" id="Resource_wstl3"]
+script = ExtResource("7_r1uh6")
+trait_name = "work in progress"
+trait_value = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80ui0"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5abjn"]
+bg_color = Color(1, 0.792157, 0.156863, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38ycl"]
+size = Vector2(8, 8)
+
+[node name="Blueprint" type="Sprite2D" node_paths=PackedStringArray("interact_button", "trait_handler", "production_timer")]
+texture = ExtResource("1_sfagv")
+script = ExtResource("2_g8824")
+blueprint_data = SubResource("Resource_emi1r")
+interact_button = NodePath("InteractButton")
+trait_handler = NodePath("TraitHandler")
+production_timer = NodePath("ProductionTimer")
+
+[node name="InteractButton" parent="." instance=ExtResource("2_lxeou")]
+unique_name_in_owner = true
+offset_left = -8.0
+offset_top = -8.0
+
+[node name="TraitHandler" type="Node" parent="."]
+script = ExtResource("7_i0p6f")
+base_traits = Array[ExtResource("7_r1uh6")]([SubResource("Resource_wstl3")])
+
+[node name="ProductionTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+script = ExtResource("4_2qage")
+
+[node name="ResourceProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -6.0
+offset_right = -4.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.57079
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_80ui0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5abjn")
+show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_38ycl")

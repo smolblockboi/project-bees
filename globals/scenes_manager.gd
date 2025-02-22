@@ -1,7 +1,7 @@
 extends Node
 
 
-const BEEHIVE = preload("res://beehive.tscn")
+const BEEHIVE = preload("res://beehives/beehive.tscn")
 
 const FLOWER = preload("res://flower.tscn")
 
@@ -9,8 +9,12 @@ const FLOWER = preload("res://flower.tscn")
 const INTERACT_TOOLTIP_PANEL = preload("res://gui/interact_tooltip_panel.tscn")
 
 
-func get_new_beehive():
-	return BEEHIVE.instantiate()
+func build_from_blueprint(build_string : String):
+	match build_string:
+		"beehive":
+			return BEEHIVE.instantiate()
+		"flower":
+			return FLOWER.instantiate()
 
 
 func get_new_flower():

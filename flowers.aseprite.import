@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://boldj6ykof70m"
+path="res://.godot/imported/flowers.aseprite-37d41266fe07efda35e55005d4d7649d.res"
+
+[deps]
+
+source_file="res://flowers.aseprite"
+dest_files=["res://.godot/imported/flowers.aseprite-37d41266fe07efda35e55005d4d7649d.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false

@@ -1,0 +1,10 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://7is2at7ok7dv"]
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(16, 16, 1)
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -20.0
+tangential_accel_max = 20.0
+color = Color(1, 0.670588, 0.568627, 1)

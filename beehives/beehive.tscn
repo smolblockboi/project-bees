@@ -1,10 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://c1gnoc020cdsm"]
 
-[ext_resource type="Texture2D" uid="uid://ncgwr832qxet" path="res://beehives.aseprite" id="1_14cmh"]
-[ext_resource type="Script" path="res://beehive.gd" id="2_lpcsj"]
+[ext_resource type="Texture2D" uid="uid://ncgwr832qxet" path="res://beehives/beehives.aseprite" id="1_14cmh"]
+[ext_resource type="Script" path="res://beehives/beehive.gd" id="2_lpcsj"]
 [ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="3_ap4ro"]
 [ext_resource type="Script" path="res://components/production_timer.gd" id="4_3ftok"]
 [ext_resource type="Script" path="res://traits/trait_handler.gd" id="4_bcewy"]
+[ext_resource type="PackedScene" uid="uid://bf40prwvhuoxh" path="res://bees/bees_particles.tscn" id="5_jan6q"]
 [ext_resource type="Script" path="res://traits/trait.gd" id="5_vaa52"]
 [ext_resource type="Resource" uid="uid://m4g73e4mg1mt" path="res://traits/base_production_quantity_trait.tres" id="6_1jikp"]
 [ext_resource type="Resource" uid="uid://0dicgln5io61" path="res://traits/base_production_rate_trait.tres" id="7_px53t"]
@@ -29,14 +30,6 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fg3vh"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(16, 16, 1)
-gravity = Vector3(0, 0, 0)
-tangential_accel_min = -20.0
-tangential_accel_max = 20.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dygcp"]
 size = Vector2(8, 8)
 
@@ -51,6 +44,14 @@ production_timer = NodePath("ProductionTimer")
 offset_left = -8.0
 offset_top = -8.0
 
+[node name="TraitHandler" type="Node" parent="." node_paths=PackedStringArray("raycast_root")]
+script = ExtResource("4_bcewy")
+raycast_root = NodePath("../FlowerRaycasts")
+base_traits = Array[ExtResource("5_vaa52")]([ExtResource("6_1jikp"), ExtResource("7_px53t")])
+
+[node name="TraitCheckTimer" type="Timer" parent="TraitHandler"]
+autostart = true
+
 [node name="ProductionTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
@@ -58,8 +59,6 @@ script = ExtResource("4_3ftok")
 
 [node name="ResourceProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-z_index = 1
-z_as_relative = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -77,9 +76,8 @@ theme_override_styles/background = SubResource("StyleBoxFlat_3m578")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mhqo2")
 show_percentage = false
 
-[node name="BeesParticles" type="GPUParticles2D" parent="."]
+[node name="BeesParticles" parent="." instance=ExtResource("5_jan6q")]
 unique_name_in_owner = true
-process_material = SubResource("ParticleProcessMaterial_fg3vh")
 
 [node name="FlowerRaycasts" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -107,14 +105,6 @@ target_position = Vector2(16, 0)
 collision_mask = 2
 collide_with_areas = true
 collide_with_bodies = false
-
-[node name="TraitHandler" type="Node" parent="." node_paths=PackedStringArray("raycast_root")]
-script = ExtResource("4_bcewy")
-raycast_root = NodePath("../FlowerRaycasts")
-base_traits = Array[ExtResource("5_vaa52")]([ExtResource("6_1jikp"), ExtResource("7_px53t")])
-
-[node name="TraitCheckTimer" type="Timer" parent="TraitHandler"]
-autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

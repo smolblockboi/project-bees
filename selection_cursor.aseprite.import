@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://c8vbh0bdgu3c2"
+path="res://.godot/imported/selection_cursor.aseprite-8bb581f3ad2eba08fa80270639363037.res"
+
+[deps]
+
+source_file="res://selection_cursor.aseprite"
+dest_files=["res://.godot/imported/selection_cursor.aseprite-8bb581f3ad2eba08fa80270639363037.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false

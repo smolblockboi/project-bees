@@ -1,7 +1,12 @@
 extends TileMapLayer
 
 
+@export var grid_cursor : Sprite2D
+
+
 func _input(event: InputEvent) -> void:
+	grid_cursor.global_position = (local_to_map(get_global_mouse_position()) * tile_set.tile_size) + Vector2i(tile_set.tile_size * 0.5)
+	
 	if Input.is_action_just_pressed("right_click"):
 		get_viewport().gui_release_focus()
 
