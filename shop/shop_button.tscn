@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://i6p6jykbqtvp"]
+
+[ext_resource type="Script" path="res://shop/shop_button.gd" id="1_c4blo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4oemb"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1ish"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(16, 16)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
+script = ExtResource("1_c4blo")

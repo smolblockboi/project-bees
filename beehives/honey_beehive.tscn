@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmpvh4fqayo2a"]
+[gd_scene load_steps=5 format=3 uid="uid://cmpvh4fqayo2a"]
 
 [ext_resource type="PackedScene" uid="uid://c1gnoc020cdsm" path="res://beehives/beehive.tscn" id="1_w68lw"]
 [ext_resource type="Texture2D" uid="uid://ncgwr832qxet" path="res://beehives/beehives.aseprite" id="2_5jwkx"]
-[ext_resource type="Script" path="res://beehives/honey_beehive.gd" id="2_cola2"]
 [ext_resource type="Material" uid="uid://7is2at7ok7dv" path="res://bees/honey_bees.tres" id="4_8d02u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ech1u"]
@@ -11,7 +10,7 @@ region = Rect2(0, 16, 16, 16)
 
 [node name="HoneyBeehive" instance=ExtResource("1_w68lw")]
 texture = SubResource("AtlasTexture_ech1u")
-script = ExtResource("2_cola2")
+object_id = "honey beehive"
 
-[node name="BeesParticles" parent="." index="3"]
+[node name="BeesParticles" parent="." index="4"]
 process_material = ExtResource("4_8d02u")

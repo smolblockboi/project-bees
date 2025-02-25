@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1cjcrivc6qia"]
+[gd_scene load_steps=11 format=3 uid="uid://d1cjcrivc6qia"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_7dlwg"]
 [ext_resource type="Theme" uid="uid://dr38a5oxk3ldk" path="res://gui/hud_theme.tres" id="2_4p1j4"]
 [ext_resource type="Texture2D" uid="uid://cn6hrhexcku0n" path="res://bee_resources.aseprite" id="2_ppw7f"]
+[ext_resource type="PackedScene" uid="uid://i6p6jykbqtvp" path="res://shop/shop_button.tscn" id="4_2lx7a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hl0e5"]
 atlas = ExtResource("2_ppw7f")
@@ -27,30 +28,6 @@ region = Rect2(0, 64, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1r4u6"]
 atlas = ExtResource("2_ppw7f")
 region = Rect2(0, 80, 16, 16)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4oemb"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-expand_margin_left = 1.0
-expand_margin_top = 1.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1ish"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-expand_margin_left = 1.0
-expand_margin_top = 1.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_7dlwg")
@@ -157,29 +134,31 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="RedLabel" type="HBoxContainer" parent="TopPanel/MarginContainer/HBoxContainer"]
+[node name="AmberLabel" type="HBoxContainer" parent="TopPanel/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="TopPanel/MarginContainer/HBoxContainer/RedLabel"]
+[node name="TextureRect" type="TextureRect" parent="TopPanel/MarginContainer/HBoxContainer/AmberLabel"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = SubResource("AtlasTexture_44c5q")
 stretch_mode = 5
 
-[node name="ResourceLabel" type="Label" parent="TopPanel/MarginContainer/HBoxContainer/RedLabel"]
+[node name="AmberLabel" type="Label" parent="TopPanel/MarginContainer/HBoxContainer/AmberLabel"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="GreenLabel" type="HBoxContainer" parent="TopPanel/MarginContainer/HBoxContainer"]
+[node name="GemLabel" type="HBoxContainer" parent="TopPanel/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="TopPanel/MarginContainer/HBoxContainer/GreenLabel"]
+[node name="TextureRect" type="TextureRect" parent="TopPanel/MarginContainer/HBoxContainer/GemLabel"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = SubResource("AtlasTexture_1r4u6")
 stretch_mode = 5
 
-[node name="ResourceLabel" type="Label" parent="TopPanel/MarginContainer/HBoxContainer/GreenLabel"]
+[node name="GemLabel" type="Label" parent="TopPanel/MarginContainer/HBoxContainer/GemLabel"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
@@ -204,167 +183,18 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="ShopButtonsHBox" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
+[node name="Beehive" parent="PanelContainer/MarginContainer/ShopButtonsHBox" instance=ExtResource("4_2lx7a")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
+text = "b"
+item_id = "beehive"
 
-[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
+[node name="Flower" parent="PanelContainer/MarginContainer/ShopButtonsHBox" instance=ExtResource("4_2lx7a")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button3" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button4" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button5" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button6" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button7" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button8" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button9" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button10" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button11" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button12" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button13" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button14" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button15" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button16" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button17" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button18" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button19" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
-
-[node name="Button20" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
+text = "f"
+item_id = "flower"

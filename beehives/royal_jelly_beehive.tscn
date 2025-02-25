@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://doyjqej2g5rt8"]
+[gd_scene load_steps=5 format=3 uid="uid://doyjqej2g5rt8"]
 
 [ext_resource type="PackedScene" uid="uid://c1gnoc020cdsm" path="res://beehives/beehive.tscn" id="1_rnlv2"]
-[ext_resource type="Script" path="res://beehives/royal_jelly_beehive.gd" id="2_hxxvc"]
 [ext_resource type="Texture2D" uid="uid://ncgwr832qxet" path="res://beehives/beehives.aseprite" id="2_rvm17"]
 [ext_resource type="Material" uid="uid://dy0lonhsw8ohb" path="res://bees/royal_jelly_bees.tres" id="4_oq1xo"]
 
@@ -11,7 +10,7 @@ region = Rect2(0, 32, 16, 16)
 
 [node name="RoyalJellyBeehive" instance=ExtResource("1_rnlv2")]
 texture = SubResource("AtlasTexture_l8c00")
-script = ExtResource("2_hxxvc")
+object_id = "royal jelly beehive"
 
-[node name="BeesParticles" parent="." index="3"]
+[node name="BeesParticles" parent="." index="4"]
 process_material = ExtResource("4_oq1xo")

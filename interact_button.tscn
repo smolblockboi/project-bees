@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2b32q4ahegjt"]
 
-[ext_resource type="Script" path="res://interact_button.gd" id="1_atyfs"]
+[ext_resource type="Script" path="res://interact_button.gd" id="1_ykpqh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1v5jc"]
 
@@ -28,4 +28,4 @@ offset_bottom = 8.0
 theme = SubResource("Theme_2eeok")
 theme_override_styles/focus = SubResource("StyleBoxFlat_d8nnw")
 flat = true
-script = ExtResource("1_atyfs")
+script = ExtResource("1_ykpqh")

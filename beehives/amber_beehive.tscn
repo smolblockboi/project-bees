@@ -1,18 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1gnoc020cdsm"]
+[gd_scene load_steps=15 format=3 uid="uid://dv3a0bf3quvaq"]
 
-[ext_resource type="Texture2D" uid="uid://ncgwr832qxet" path="res://beehives/beehives.aseprite" id="1_14cmh"]
-[ext_resource type="Script" path="res://beehives/beehive.gd" id="2_lpcsj"]
-[ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="3_ap4ro"]
-[ext_resource type="Script" path="res://components/production_timer.gd" id="4_3ftok"]
-[ext_resource type="Script" path="res://traits/trait_handler.gd" id="4_bcewy"]
-[ext_resource type="PackedScene" uid="uid://bf40prwvhuoxh" path="res://bees/bees_particles.tscn" id="5_jan6q"]
-[ext_resource type="Script" path="res://traits/trait.gd" id="5_vaa52"]
-[ext_resource type="Resource" uid="uid://m4g73e4mg1mt" path="res://traits/base_production_quantity_trait.tres" id="6_1jikp"]
-[ext_resource type="Resource" uid="uid://0dicgln5io61" path="res://traits/base_production_rate_trait.tres" id="7_px53t"]
+[ext_resource type="Texture2D" uid="uid://ncgwr832qxet" path="res://beehives/beehives.aseprite" id="1_novkq"]
+[ext_resource type="Script" path="res://beehives/beehive.gd" id="2_m0qai"]
+[ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="3_k4ivi"]
+[ext_resource type="Script" path="res://traits/trait_handler.gd" id="4_lt8ka"]
+[ext_resource type="Script" path="res://traits/trait.gd" id="5_rih2n"]
+[ext_resource type="Resource" uid="uid://m4g73e4mg1mt" path="res://traits/base_production_quantity_trait.tres" id="6_nrd6n"]
+[ext_resource type="Resource" uid="uid://0dicgln5io61" path="res://traits/base_production_rate_trait.tres" id="7_file3"]
+[ext_resource type="Script" path="res://components/production_timer.gd" id="8_u4o57"]
+[ext_resource type="PackedScene" uid="uid://bf40prwvhuoxh" path="res://bees/bees_particles.tscn" id="9_2u7q6"]
+[ext_resource type="Material" uid="uid://843c7lmbt5gl" path="res://bees/amber_bees.tres" id="10_m18ex"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4duqo"]
-atlas = ExtResource("1_14cmh")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8vjp"]
+atlas = ExtResource("1_novkq")
+region = Rect2(0, 48, 16, 16)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m578"]
 bg_color = Color(0, 0, 0, 1)
@@ -33,26 +34,30 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dygcp"]
 size = Vector2(8, 8)
 
-[node name="Beehive" type="Sprite2D" node_paths=PackedStringArray("interact_button", "trait_handler", "production_timer")]
-texture = SubResource("AtlasTexture_4duqo")
-script = ExtResource("2_lpcsj")
+[node name="AmberBeehive" type="Sprite2D" node_paths=PackedStringArray("interact_button", "trait_handler", "production_timer")]
+texture = SubResource("AtlasTexture_x8vjp")
+script = ExtResource("2_m0qai")
+object_id = "amber beehive"
 interact_button = NodePath("InteractButton")
 trait_handler = NodePath("TraitHandler")
 production_timer = NodePath("ProductionTimer")
 
-[node name="InteractButton" parent="." instance=ExtResource("3_ap4ro")]
+[node name="InteractButton" parent="." instance=ExtResource("3_k4ivi")]
 offset_left = -8.0
 offset_top = -8.0
 
 [node name="TraitHandler" type="Node" parent="." node_paths=PackedStringArray("raycast_root")]
-script = ExtResource("4_bcewy")
+script = ExtResource("4_lt8ka")
 raycast_root = NodePath("../FlowerRaycasts")
-base_traits = Array[ExtResource("5_vaa52")]([ExtResource("6_1jikp"), ExtResource("7_px53t")])
+base_traits = Array[ExtResource("5_rih2n")]([ExtResource("6_nrd6n"), ExtResource("7_file3")])
+
+[node name="TraitCheckTimer" type="Timer" parent="TraitHandler"]
+autostart = true
 
 [node name="ProductionTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
-script = ExtResource("4_3ftok")
+script = ExtResource("8_u4o57")
 
 [node name="ResourceProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
@@ -73,8 +78,9 @@ theme_override_styles/background = SubResource("StyleBoxFlat_3m578")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mhqo2")
 show_percentage = false
 
-[node name="BeesParticles" parent="." instance=ExtResource("5_jan6q")]
+[node name="BeesParticles" parent="." instance=ExtResource("9_2u7q6")]
 unique_name_in_owner = true
+process_material = ExtResource("10_m18ex")
 
 [node name="FlowerRaycasts" type="Node2D" parent="."]
 unique_name_in_owner = true

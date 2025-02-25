@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://ckcg2hqgvoh5x"
+path="res://.godot/imported/decorations.aseprite-3ab9a4707e0c255820019ffd451c41d2.res"
+
+[deps]
+
+source_file="res://decorations/decorations.aseprite"
+dest_files=["res://.godot/imported/decorations.aseprite-3ab9a4707e0c255820019ffd451c41d2.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false

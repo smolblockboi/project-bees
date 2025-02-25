@@ -3,6 +3,14 @@ extends TileMapLayer
 
 @export var grid_cursor : Sprite2D
 
+var beekeepers : Array
+var decorations : Array
+
+
+func _physics_process(delta: float) -> void:
+	beekeepers = get_tree().get_nodes_in_group("beekeepers")
+	decorations = get_tree().get_nodes_in_group("decorations")
+
 
 func _input(event: InputEvent) -> void:
 	grid_cursor.global_position = (local_to_map(get_global_mouse_position()) * tile_set.tile_size) + Vector2i(tile_set.tile_size * 0.5)
@@ -17,12 +25,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		var clicked_tile_position = local_to_map(get_global_mouse_position())
 		var tile_center = (clicked_tile_position * tile_set.tile_size) + Vector2i(tile_set.tile_size * 0.5)
 		
-		#TODO Make moving beekeeper not as sucky.
-		
 		if !gui_focus:
-			var test = ScenesManager.get_new_flower()
-			add_child(test)
-			test.position = tile_center
+			if get_parent().selected_hud_item:
+				var new_item = ScenesManager.get_new_blueprint(get_parent().selected_hud_item)
+				add_child(new_item)
+				new_item.position = tile_center
 		else:
 			if gui_focus.get_parent() is not Beekeeper:
 				gui_focus.release_focus()
