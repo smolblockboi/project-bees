@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://beaty80w38j7d"]
+
+[ext_resource type="PackedScene" uid="uid://0g70tpuv4qnn" path="res://blueprints/blueprint.tscn" id="1_ngxnq"]
+[ext_resource type="Texture2D" uid="uid://cv5t4hcsg65wd" path="res://blueprints/blueprints.aseprite" id="2_nvnsp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec3yc"]
+atlas = ExtResource("2_nvnsp")
+region = Rect2(0, 16, 16, 16)
+
+[node name="FlowerBlueprint" instance=ExtResource("1_ngxnq")]
+texture = SubResource("AtlasTexture_ec3yc")

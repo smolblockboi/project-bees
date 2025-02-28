@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://0g70tpuv4qnn"]
+[gd_scene load_steps=14 format=3 uid="uid://0g70tpuv4qnn"]
 
 [ext_resource type="Texture2D" uid="uid://cv5t4hcsg65wd" path="res://blueprints/blueprints.aseprite" id="1_sfagv"]
 [ext_resource type="Script" path="res://blueprints/blueprint.gd" id="2_g8824"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" path="res://blueprints/blueprint_data.gd" id="4_jvb8i"]
 [ext_resource type="Script" path="res://traits/trait_handler.gd" id="7_i0p6f"]
 [ext_resource type="Script" path="res://traits/trait.gd" id="7_r1uh6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a208a"]
+atlas = ExtResource("1_sfagv")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_emi1r"]
 script = ExtResource("4_jvb8i")
@@ -37,7 +41,7 @@ border_color = Color(0, 0, 0, 1)
 size = Vector2(8, 8)
 
 [node name="Blueprint" type="Sprite2D" node_paths=PackedStringArray("interact_button", "trait_handler", "production_timer")]
-texture = ExtResource("1_sfagv")
+texture = SubResource("AtlasTexture_a208a")
 script = ExtResource("2_g8824")
 blueprint_data = SubResource("Resource_emi1r")
 interact_button = NodePath("InteractButton")

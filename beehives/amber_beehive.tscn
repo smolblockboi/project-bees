@@ -37,7 +37,7 @@ size = Vector2(8, 8)
 [node name="AmberBeehive" type="Sprite2D" node_paths=PackedStringArray("interact_button", "trait_handler", "production_timer")]
 texture = SubResource("AtlasTexture_x8vjp")
 script = ExtResource("2_m0qai")
-object_id = "amber beehive"
+object_id = "amber_beehive"
 interact_button = NodePath("InteractButton")
 trait_handler = NodePath("TraitHandler")
 production_timer = NodePath("ProductionTimer")

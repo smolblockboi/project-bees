@@ -24,12 +24,23 @@ func _ready() -> void:
 	
 	harvested.connect(StatTracker._on_object_harvested)
 	requested_ingredients.connect(StatTracker._on_ingredients_requested_started)
+	
+	if get_parent() is TileMapLayer:
+		set_is_disabled_from_tile_map_layer(bool(get_parent().placement_mode))
 
 
 func _process(delta: float) -> void:
 	resource_progress_bar.value = production_timer.wait_time - production_timer.time_left
 	
 	resource_progress_bar.set_visible(!production_timer.is_stopped() or ready_to_harvest)
+
+
+func set_is_disabled_from_tile_map_layer(is_true : bool):
+	interact_button.set_disabled(is_true)
+	if interact_button.is_disabled():
+		interact_button.set_focus_mode(Control.FOCUS_NONE)
+	else:
+		interact_button.set_focus_mode(Control.FOCUS_ALL)
 
 
 func harvest_from_object():

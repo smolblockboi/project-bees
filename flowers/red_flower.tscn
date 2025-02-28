@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8trlluxc83i5"]
+
+[ext_resource type="PackedScene" uid="uid://c1owjfx4npu7e" path="res://flowers/flower.tscn" id="1_kqyte"]
+[ext_resource type="Texture2D" uid="uid://boldj6ykof70m" path="res://flowers/flowers.aseprite" id="2_23pkm"]
+[ext_resource type="Script" path="res://traits/trait.gd" id="3_haoqp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmsbi"]
+atlas = ExtResource("2_23pkm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_2gvb2"]
+script = ExtResource("3_haoqp")
+trait_name = "red flower"
+trait_value = 1.0
+
+[node name="RedFlower" instance=ExtResource("1_kqyte")]
+texture = SubResource("AtlasTexture_xmsbi")
+object_id = "red_flower"
+
+[node name="TraitHandler" parent="." index="1"]
+base_traits = Array[ExtResource("3_haoqp")]([SubResource("Resource_2gvb2")])

@@ -30,6 +30,7 @@ expand_margin_bottom = 1.0
 custom_minimum_size = Vector2(16, 16)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_mode = 0
 theme_override_styles/hover = SubResource("StyleBoxFlat_4oemb")
 theme_override_styles/normal = SubResource("StyleBoxFlat_a1ish")
 script = ExtResource("1_c4blo")

@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1cjcrivc6qia"]
+[gd_scene load_steps=10 format=3 uid="uid://d1cjcrivc6qia"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_7dlwg"]
 [ext_resource type="Theme" uid="uid://dr38a5oxk3ldk" path="res://gui/hud_theme.tres" id="2_4p1j4"]
 [ext_resource type="Texture2D" uid="uid://cn6hrhexcku0n" path="res://bee_resources.aseprite" id="2_ppw7f"]
-[ext_resource type="PackedScene" uid="uid://i6p6jykbqtvp" path="res://shop/shop_button.tscn" id="4_2lx7a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hl0e5"]
 atlas = ExtResource("2_ppw7f")
@@ -188,13 +187,3 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
-
-[node name="Beehive" parent="PanelContainer/MarginContainer/ShopButtonsHBox" instance=ExtResource("4_2lx7a")]
-layout_mode = 2
-text = "b"
-item_id = "beehive"
-
-[node name="Flower" parent="PanelContainer/MarginContainer/ShopButtonsHBox" instance=ExtResource("4_2lx7a")]
-layout_mode = 2
-text = "f"
-item_id = "flower"

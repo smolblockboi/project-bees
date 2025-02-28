@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhqnv2hkpd55e"]
+[gd_scene load_steps=4 format=3 uid="uid://dhqnv2hkpd55e"]
 
 [ext_resource type="Texture2D" uid="uid://c8vbh0bdgu3c2" path="res://selection_cursor.aseprite" id="1_cvhsq"]
+[ext_resource type="Script" path="res://gui/grid_cursor.gd" id="2_2sgy6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11tc8"]
 atlas = ExtResource("1_cvhsq")
@@ -8,3 +9,4 @@ region = Rect2(0, 0, 16, 16)
 
 [node name="GridCursor" type="Sprite2D"]
 texture = SubResource("AtlasTexture_11tc8")
+script = ExtResource("2_2sgy6")

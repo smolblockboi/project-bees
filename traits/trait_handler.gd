@@ -47,12 +47,13 @@ func get_surrounding_trait_mods():
 
 func get_global_traits():
 	var trait_dict : Dictionary
-	for decoration in get_parent().get_parent().decorations:
-		for g_trait in decoration.trait_handler.global_traits:
-			if !trait_dict.get(g_trait.trait_name):
-				trait_dict[g_trait.trait_name] = g_trait.trait_value
-			else:
-				trait_dict[g_trait.trait_name] += g_trait.trait_value
+	if get_parent() is TileMapLayer:
+		for decoration in get_parent().get_parent().decorations:
+			for g_trait in decoration.trait_handler.global_traits:
+				if !trait_dict.get(g_trait.trait_name):
+					trait_dict[g_trait.trait_name] = g_trait.trait_value
+				else:
+					trait_dict[g_trait.trait_name] += g_trait.trait_value
 	return trait_dict
 
 

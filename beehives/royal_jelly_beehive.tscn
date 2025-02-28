@@ -10,7 +10,7 @@ region = Rect2(0, 32, 16, 16)
 
 [node name="RoyalJellyBeehive" instance=ExtResource("1_rnlv2")]
 texture = SubResource("AtlasTexture_l8c00")
-object_id = "royal jelly beehive"
+object_id = "royal_jelly_beehive"
 
 [node name="BeesParticles" parent="." index="4"]
 process_material = ExtResource("4_oq1xo")

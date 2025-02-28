@@ -3,8 +3,10 @@ class_name Beekeeper extends AnimatedSprite2D
 
 signal finished_moving
 
-
+@export var object_id : String
+@export var object_icon : Texture2D
 @export var trait_handler : TraitHandler
+@export var interact_button : InteractButton
 
 @onready var adjacent_raycasts: Node2D = %AdjacentRaycasts
 
@@ -23,6 +25,9 @@ func _ready() -> void:
 	animation_finished.connect(_on_sprite_animation_finished)
 	
 	auto_interact_timer.timeout.connect(_on_auto_interact_timeout)
+	
+	if get_parent() is TileMapLayer:
+		set_is_disabled_from_tile_map_layer(bool(get_parent().placement_mode))
 
 
 func _physics_process(delta: float) -> void:
@@ -33,6 +38,14 @@ func _physics_process(delta: float) -> void:
 		auto_interact_timer.wait_time = 5 - trait_handler.get_total_traits_mod().get("bench")
 	else:
 		auto_interact_timer.wait_time = 5
+
+
+func set_is_disabled_from_tile_map_layer(is_true : bool):
+	interact_button.set_disabled(is_true)
+	if interact_button.is_disabled():
+		interact_button.set_focus_mode(Control.FOCUS_NONE)
+	else:
+		interact_button.set_focus_mode(Control.FOCUS_ALL)
 
 
 func _on_interact_pressed():

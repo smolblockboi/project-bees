@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvoqh0uhoj5pa"]
+
+[ext_resource type="PackedScene" uid="uid://0g70tpuv4qnn" path="res://blueprints/blueprint.tscn" id="1_nivi2"]
+[ext_resource type="Texture2D" uid="uid://cv5t4hcsg65wd" path="res://blueprints/blueprints.aseprite" id="2_qymmr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_200jw"]
+atlas = ExtResource("2_qymmr")
+region = Rect2(0, 32, 16, 16)
+
+[node name="BeekeeperBlueprint" instance=ExtResource("1_nivi2")]
+texture = SubResource("AtlasTexture_200jw")

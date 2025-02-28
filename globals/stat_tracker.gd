@@ -11,50 +11,50 @@ var total_gem : int
 
 func _on_object_harvested(id : String, amount : int):
 	match id:
-		"beehive":
+		"_beehive":
 			gain_pollen(amount)
 			gain_nectar(amount)
-		"honey beehive":
+		"honey_beehive":
 			gain_honey(amount)
-		"royal jelly beehive":
+		"royal_jelly_beehive":
 			gain_royal_jelly(amount)
-		"amber beehive":
+		"amber_beehive":
 			gain_amber(amount)
-		"gem beehive":
+		"gem_beehive":
 			gain_gem(amount)
 
 
 func has_enough_resource(id : String):
 	match id:
-		"beehive":
+		"_beehive":
 			return true
-		"honey beehive":
+		"honey_beehive":
 			return (total_pollen > 0) and (total_nectar > 0)
-		"royal jelly beehive":
+		"royal_jelly_beehive":
 			return (total_pollen > 0) and (total_nectar > 0) and (total_honey > 0)
-		"amber beehive":
+		"amber_beehive":
 			return (total_pollen > 0) and (total_nectar > 0) and (total_honey > 0) and (total_royal_jelly > 0)
-		"gem beehive":
+		"gem_beehive":
 			return (total_pollen > 0) and (total_nectar > 0) and (total_honey > 0) and (total_royal_jelly > 0) and (total_amber > 0)
 
 
 func _on_ingredients_requested_started(id : String, amount : int):
 	match id:
-		"beehive":
+		"_beehive":
 			pass
-		"honey beehive":
+		"honey_beehive":
 			lose_pollen(amount)
 			lose_nectar(amount)
-		"royal jelly beehive":
+		"royal_jelly_beehive":
 			lose_pollen(amount)
 			lose_nectar(amount)
 			lose_honey(amount)
-		"amber beehive":
+		"amber_beehive":
 			lose_pollen(amount)
 			lose_nectar(amount)
 			lose_honey(amount)
 			lose_royal_jelly(amount)
-		"gem beehive":
+		"gem_beehive":
 			lose_pollen(amount)
 			lose_nectar(amount)
 			lose_honey(amount)
