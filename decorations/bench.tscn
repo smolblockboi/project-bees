@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://421q236mmseo"]
+
+[ext_resource type="PackedScene" uid="uid://dhtrw6o0wvetk" path="res://decorations/decoration.tscn" id="1_ghvvx"]
+
+[node name="Bench" instance=ExtResource("1_ghvvx")]

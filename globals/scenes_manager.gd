@@ -67,4 +67,4 @@ func get_new_blueprint(build_string : String):
 
 
 func get_new_tooltip_panel():
-	return INTERACT_TOOLTIP_PANEL.instantiate()
+	return INTERACT_TOOLTIP_PANEL.instantiate() as InteractTooltipPanel

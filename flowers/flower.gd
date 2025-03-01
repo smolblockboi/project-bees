@@ -5,7 +5,7 @@ class_name Flower extends Sprite2D
 @export var interact_button : InteractButton
 
 
-func _on_interact_pressed():
+func _on_interacted():
 	if !trait_handler:
 		push_error("%s missing trait handler" % self.name)
 		return

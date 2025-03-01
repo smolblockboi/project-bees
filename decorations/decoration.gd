@@ -19,5 +19,9 @@ func set_is_disabled_from_tile_map_layer(is_true : bool):
 		interact_button.set_focus_mode(Control.FOCUS_ALL)
 
 
-func _on_interact_pressed():
+func _on_interacted():
+	pass
+
+
+func _on_interact_hovered():
 	pass

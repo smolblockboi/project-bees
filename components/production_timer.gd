@@ -16,9 +16,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if !is_stopped():
-		if (int(time_left) != last_tick):
-			last_tick = int(time_left)
-			timer_ticked.emit()
+		if time_left != wait_time:
+			if (int(time_left) != last_tick):
+				last_tick = int(time_left)
+				timer_ticked.emit()
 
 
 func is_production_active():

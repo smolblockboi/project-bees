@@ -1,12 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://0g70tpuv4qnn"]
+[gd_scene load_steps=12 format=3 uid="uid://0g70tpuv4qnn"]
 
 [ext_resource type="Texture2D" uid="uid://cv5t4hcsg65wd" path="res://blueprints/blueprints.aseprite" id="1_sfagv"]
 [ext_resource type="Script" path="res://blueprints/blueprint.gd" id="2_g8824"]
 [ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="2_lxeou"]
 [ext_resource type="Script" path="res://components/production_timer.gd" id="4_2qage"]
 [ext_resource type="Script" path="res://blueprints/blueprint_data.gd" id="4_jvb8i"]
-[ext_resource type="Script" path="res://traits/trait_handler.gd" id="7_i0p6f"]
-[ext_resource type="Script" path="res://traits/trait.gd" id="7_r1uh6"]
+[ext_resource type="PackedScene" uid="uid://b03kqrvl5vekl" path="res://traits/trait_handler.tscn" id="5_fdno7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a208a"]
 atlas = ExtResource("1_sfagv")
@@ -15,11 +14,6 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="Resource" id="Resource_emi1r"]
 script = ExtResource("4_jvb8i")
 scene = "flower"
-
-[sub_resource type="Resource" id="Resource_wstl3"]
-script = ExtResource("7_r1uh6")
-trait_name = "work in progress"
-trait_value = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80ui0"]
 bg_color = Color(0, 0, 0, 1)
@@ -48,14 +42,13 @@ interact_button = NodePath("InteractButton")
 trait_handler = NodePath("TraitHandler")
 production_timer = NodePath("ProductionTimer")
 
-[node name="InteractButton" parent="." instance=ExtResource("2_lxeou")]
+[node name="InteractButton" parent="." node_paths=PackedStringArray("trait_handler") instance=ExtResource("2_lxeou")]
 unique_name_in_owner = true
 offset_left = -8.0
 offset_top = -8.0
+trait_handler = NodePath("../TraitHandler")
 
-[node name="TraitHandler" type="Node" parent="."]
-script = ExtResource("7_i0p6f")
-base_traits = Array[ExtResource("7_r1uh6")]([SubResource("Resource_wstl3")])
+[node name="TraitHandler" parent="." instance=ExtResource("5_fdno7")]
 
 [node name="ProductionTimer" type="Timer" parent="."]
 wait_time = 0.5

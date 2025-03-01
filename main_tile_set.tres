@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cmpvh4fqayo2a" path="res://beehives/honey_beehive.tscn" id="4_q4anj"]
 [ext_resource type="PackedScene" uid="uid://doyjqej2g5rt8" path="res://beehives/royal_jelly_beehive.tscn" id="5_2obh2"]
 [ext_resource type="PackedScene" uid="uid://0g70tpuv4qnn" path="res://blueprints/blueprint.tscn" id="6_jh0ek"]
-[ext_resource type="PackedScene" uid="uid://dv3a0bf3quvaq" path="res://beehives/amber_beehive.tscn" id="6_svy0s"]
-[ext_resource type="PackedScene" uid="uid://bd4onlli7qr8g" path="res://beehives/gem_beehive.tscn" id="8_7epiv"]
-[ext_resource type="PackedScene" uid="uid://dhtrw6o0wvetk" path="res://decorations/decoration.tscn" id="9_xaqxy"]
+[ext_resource type="PackedScene" uid="uid://xyqb3r2p3sey" path="res://beehives/amber_beehive.tscn" id="6_svy0s"]
+[ext_resource type="PackedScene" uid="uid://crius6on20s27" path="res://beehives/gem_beehive.tscn" id="8_7epiv"]
+[ext_resource type="PackedScene" uid="uid://421q236mmseo" path="res://decorations/bench.tscn" id="9_e5tov"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_v5x4u"]
 resource_name = "Bee Related Scenes"
@@ -17,13 +17,13 @@ scenes/2/scene = ExtResource("2_qv8wk")
 scenes/3/scene = ExtResource("3_qpdne")
 scenes/4/scene = ExtResource("4_q4anj")
 scenes/5/scene = ExtResource("5_2obh2")
-scenes/6/scene = ExtResource("6_svy0s")
 scenes/7/scene = ExtResource("6_jh0ek")
-scenes/8/scene = ExtResource("8_7epiv")
+scenes/9/scene = ExtResource("6_svy0s")
+scenes/10/scene = ExtResource("8_7epiv")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ejk6l"]
 resource_name = "Decoration Scenes"
-scenes/2/scene = ExtResource("9_xaqxy")
+scenes/1/scene = ExtResource("9_e5tov")
 
 [resource]
 sources/0 = SubResource("TileSetScenesCollectionSource_v5x4u")

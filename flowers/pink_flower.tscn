@@ -1,21 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo2wct85qxht8"]
+[gd_scene load_steps=4 format=3 uid="uid://bo2wct85qxht8"]
 
 [ext_resource type="PackedScene" uid="uid://c1owjfx4npu7e" path="res://flowers/flower.tscn" id="1_juyeg"]
 [ext_resource type="Texture2D" uid="uid://boldj6ykof70m" path="res://flowers/flowers.aseprite" id="2_jkjcy"]
-[ext_resource type="Script" path="res://traits/trait.gd" id="3_hh0km"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ws6jo"]
 atlas = ExtResource("2_jkjcy")
 region = Rect2(0, 80, 16, 16)
 
-[sub_resource type="Resource" id="Resource_65syy"]
-script = ExtResource("3_hh0km")
-trait_name = "pink flower"
-trait_value = 1.0
-
 [node name="PinkFlower" instance=ExtResource("1_juyeg")]
 texture = SubResource("AtlasTexture_ws6jo")
 object_id = "pink_flower"
-
-[node name="TraitHandler" parent="." index="1"]
-base_traits = Array[ExtResource("3_hh0km")]([SubResource("Resource_65syy")])

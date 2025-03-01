@@ -3,9 +3,13 @@ class_name InteractButton extends Button
 
 signal emulated_pressed
 
+@export var trait_handler : TraitHandler
+
 
 func _ready() -> void:
-	pressed.connect(get_parent()._on_interact_pressed)
+	pressed.connect(get_parent()._on_interacted)
+	emulated_pressed.connect(get_parent()._on_interacted)
+	
 	mouse_entered.connect(_on_hovered)
 
 
@@ -25,7 +29,11 @@ func update_tooltip(dict : Dictionary):
 
 
 func _on_hovered():
-	var new_tooltip_info = get_parent().trait_handler.get_total_traits_mod().duplicate()
+	var new_tooltip_info : Dictionary 
+	if get_parent() is Blueprint:
+		new_tooltip_info["for"] = get_parent().blueprint_data.scene
+	else:
+		new_tooltip_info = trait_handler.get_total_traits_as_dict()
 	new_tooltip_info["name"] = get_parent().name
 	update_tooltip(new_tooltip_info)
 
@@ -33,10 +41,5 @@ func _on_hovered():
 func _make_custom_tooltip(for_text : String):
 	var new_tooltip = ScenesManager.get_new_tooltip_panel()
 	var string_parse = for_text.split("\n")
-	print(string_parse)
-	new_tooltip.get_node("%NameLabel").text = "%s" % string_parse[0]
-	new_tooltip.get_node("%InfoLabel").text = ""
-	for i in string_parse:
-		if i != string_parse[0]:
-			new_tooltip.get_node("%InfoLabel").text += "%s\n" % i
+	new_tooltip.populate_panel(string_parse)
 	return new_tooltip

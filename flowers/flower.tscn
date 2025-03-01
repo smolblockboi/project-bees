@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1owjfx4npu7e"]
+[gd_scene load_steps=8 format=3 uid="uid://c1owjfx4npu7e"]
 
 [ext_resource type="Texture2D" uid="uid://boldj6ykof70m" path="res://flowers/flowers.aseprite" id="1_lwgb2"]
 [ext_resource type="Script" path="res://flowers/flower.gd" id="2_fd17t"]
 [ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="3_th8r7"]
-[ext_resource type="Script" path="res://traits/trait_handler.gd" id="4_8v2g0"]
-[ext_resource type="Script" path="res://traits/trait.gd" id="5_jf3ko"]
-[ext_resource type="Resource" uid="uid://cyu2hb2qcmrnh" path="res://traits/production_rate_trait.tres" id="6_mc1jd"]
+[ext_resource type="PackedScene" uid="uid://b03kqrvl5vekl" path="res://traits/trait_handler.tscn" id="4_w8ap6"]
+[ext_resource type="PackedScene" uid="uid://b67dhrr628m5u" path="res://components/adjacent_raycasts.tscn" id="6_h6rg3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bhr5i"]
 atlas = ExtResource("1_lwgb2")
@@ -21,13 +20,16 @@ object_id = "flower"
 trait_handler = NodePath("TraitHandler")
 interact_button = NodePath("InteractButton")
 
-[node name="InteractButton" parent="." instance=ExtResource("3_th8r7")]
+[node name="InteractButton" parent="." node_paths=PackedStringArray("trait_handler") instance=ExtResource("3_th8r7")]
 offset_left = -8.0
 offset_top = -8.0
+trait_handler = NodePath("../TraitHandler")
 
-[node name="TraitHandler" type="Node" parent="."]
-script = ExtResource("4_8v2g0")
-base_traits = Array[ExtResource("5_jf3ko")]([ExtResource("6_mc1jd")])
+[node name="TraitHandler" parent="." node_paths=PackedStringArray("adjacent_raycasts") instance=ExtResource("4_w8ap6")]
+adjacent_raycasts = NodePath("../AdjacentRaycasts")
+
+[node name="AdjacentRaycasts" parent="." instance=ExtResource("6_h6rg3")]
+mask = 4
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

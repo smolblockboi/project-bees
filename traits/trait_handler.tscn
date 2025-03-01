@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b03kqrvl5vekl"]
+
+[ext_resource type="Script" path="res://traits/trait_handler.gd" id="1_lyvly"]
+
+[node name="TraitHandler" type="Node"]
+script = ExtResource("1_lyvly")

@@ -13,8 +13,6 @@ signal requested_ingredients
 @onready var resource_progress_bar: ProgressBar = %ResourceProgressBar
 @onready var bees_particles: GPUParticles2D = %BeesParticles
 
-@onready var flower_raycasts: Node2D = %FlowerRaycasts
-
 
 var ready_to_harvest : bool
 
@@ -52,12 +50,12 @@ func emulate_interact_press():
 	interact_button.pressed.emit()
 
 
-func _on_interact_pressed():
+func _on_interacted():
 	if ready_to_harvest:
 		harvest_from_object()
 	
 	if production_timer.is_stopped():
-		production_timer.wait_time = 5.0 / trait_handler.get_total_traits_mod().get("production rate")
+		production_timer.wait_time = 5.0
 		
 		resource_progress_bar.value = 0
 		resource_progress_bar.max_value = production_timer.wait_time
@@ -75,7 +73,7 @@ func _on_production_started():
 
 
 func _on_production_ticked():
-	trait_handler.get_total_traits_mod()
+	pass
 
 
 func _on_production_finished():
