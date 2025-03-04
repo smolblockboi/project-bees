@@ -1,5 +1,6 @@
 class_name Flower extends Sprite2D
 
+
 @export var object_id : String
 @export var trait_handler : TraitHandler
 @export var interact_button : InteractButton

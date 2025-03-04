@@ -1,10 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://c7csofag283fp"]
+[gd_scene load_steps=21 format=3 uid="uid://c7csofag283fp"]
 
 [ext_resource type="Texture2D" uid="uid://cqhft3vp8yb0n" path="res://beekeepers/beekeeper.aseprite" id="1_vlqj1"]
 [ext_resource type="Script" path="res://beekeepers/beekeeper.gd" id="2_2u8re"]
 [ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="3_8ytqy"]
 [ext_resource type="PackedScene" uid="uid://b03kqrvl5vekl" path="res://traits/trait_handler.tscn" id="4_n88sh"]
-[ext_resource type="Script" path="res://traits/trait_slot.gd" id="5_1hawh"]
 [ext_resource type="PackedScene" uid="uid://b67dhrr628m5u" path="res://components/adjacent_raycasts.tscn" id="6_2ah72"]
 [ext_resource type="Script" path="res://traits/trait.gd" id="6_2enn5"]
 
@@ -162,32 +161,10 @@ animations = [{
 atlas = ExtResource("1_vlqj1")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="Resource" id="Resource_nwowq"]
+[sub_resource type="Resource" id="Resource_7rt7m"]
 script = ExtResource("6_2enn5")
 trait_name = "smol"
-
-[sub_resource type="Resource" id="Resource_vq1p6"]
-script = ExtResource("5_1hawh")
-trait_resource = SubResource("Resource_nwowq")
-quantity = 5
-
-[sub_resource type="Resource" id="Resource_heotd"]
-script = ExtResource("6_2enn5")
-trait_name = "block"
-
-[sub_resource type="Resource" id="Resource_h31jq"]
-script = ExtResource("5_1hawh")
-trait_resource = SubResource("Resource_heotd")
-quantity = 2
-
-[sub_resource type="Resource" id="Resource_vox1j"]
-script = ExtResource("6_2enn5")
-trait_name = "beekeeper"
-
-[sub_resource type="Resource" id="Resource_wopn8"]
-script = ExtResource("5_1hawh")
-trait_resource = SubResource("Resource_vox1j")
-quantity = 10
+trait_quantity = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uq6kw"]
 size = Vector2(8, 8)
@@ -209,7 +186,7 @@ trait_handler = NodePath("../TraitHandler")
 
 [node name="TraitHandler" parent="." node_paths=PackedStringArray("adjacent_raycasts") instance=ExtResource("4_n88sh")]
 adjacent_raycasts = NodePath("../AdjacentRaycasts")
-base_traits = Array[ExtResource("5_1hawh")]([SubResource("Resource_vq1p6"), SubResource("Resource_h31jq"), SubResource("Resource_wopn8")])
+base_traits = Array[ExtResource("6_2enn5")]([SubResource("Resource_7rt7m")])
 
 [node name="AdjacentRaycasts" parent="." instance=ExtResource("6_2ah72")]
 unique_name_in_owner = true

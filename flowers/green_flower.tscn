@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cy6auwrce7trh"]
 
-[ext_resource type="PackedScene" uid="uid://c1owjfx4npu7e" path="res://flowers/flower.tscn" id="1_dtvcd"]
+[ext_resource type="PackedScene" uid="uid://c1owjfx4npu7e" path="res://flowers/base_flower.tscn" id="1_dtvcd"]
 [ext_resource type="Texture2D" uid="uid://boldj6ykof70m" path="res://flowers/flowers.aseprite" id="2_lir3l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmyep"]

@@ -11,3 +11,4 @@ region = Rect2(0, 0, 16, 16)
 script = ExtResource("1_1ngw8")
 trait_name = "automation"
 trait_icon = SubResource("AtlasTexture_ui5rp")
+trait_quantity = 1

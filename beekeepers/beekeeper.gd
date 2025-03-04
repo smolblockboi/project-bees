@@ -91,11 +91,9 @@ func _on_sprite_animation_finished():
 		var neighbors = adjacent_raycasts.get_adjacent_objects()
 		for i in neighbors:
 			i.emulate_interact_press()
-			print("%s interacted with %s" % [name, i.name])
 		auto_interact_timer.start()
 
 
 func _on_auto_interact_timeout():
 	if !is_moving:
-		print("%s auto interacted" % name)
 		interact_with_neighbors_start()

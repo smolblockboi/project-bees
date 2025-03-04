@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://doyjqej2g5rt8"]
 
-[ext_resource type="PackedScene" uid="uid://c1gnoc020cdsm" path="res://beehives/beehive.tscn" id="1_rnlv2"]
+[ext_resource type="PackedScene" uid="uid://c1gnoc020cdsm" path="res://beehives/base_beehive.tscn" id="1_rnlv2"]
 [ext_resource type="Texture2D" uid="uid://ncgwr832qxet" path="res://beehives/beehives.aseprite" id="2_rvm17"]
 [ext_resource type="Material" uid="uid://dy0lonhsw8ohb" path="res://bees/royal_jelly_bees.tres" id="4_oq1xo"]
 

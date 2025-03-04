@@ -55,7 +55,9 @@ func _on_interacted():
 		harvest_from_object()
 	
 	if production_timer.is_stopped():
-		production_timer.wait_time = 5.0
+		trait_handler.get_surrounding_object_traits()
+		
+		production_timer.wait_time = 5.0 / max(trait_handler.get_trait_dict_quantity("production rate"), 1)
 		
 		resource_progress_bar.value = 0
 		resource_progress_bar.max_value = production_timer.wait_time
@@ -73,7 +75,9 @@ func _on_production_started():
 
 
 func _on_production_ticked():
-	pass
+	trait_handler.get_surrounding_object_traits()
+	
+	production_timer.wait_time = 5.0 / max(trait_handler.get_trait_dict_quantity("production rate"), 1)
 
 
 func _on_production_finished():

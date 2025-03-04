@@ -7,7 +7,7 @@ extends Node
 
 
 @onready var beehive_scenes = {
-	"_beehive" : preload("res://beehives/beehive.tscn"), 
+	"pollen_beehive" : preload("res://beehives/pollen_beehive.tscn"), 
 	"honey_beehive" : preload("res://beehives/honey_beehive.tscn"), 
 	"royal_jelly_beehive" : preload("res://beehives/royal_jelly_beehive.tscn"), 
 	"amber_beehive" : preload("res://beehives/amber_beehive.tscn"), 

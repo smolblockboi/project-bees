@@ -11,7 +11,7 @@ var total_gem : int
 
 func _on_object_harvested(id : String, amount : int):
 	match id:
-		"_beehive":
+		"pollen_beehive":
 			gain_pollen(amount)
 			gain_nectar(amount)
 		"honey_beehive":
@@ -26,7 +26,7 @@ func _on_object_harvested(id : String, amount : int):
 
 func has_enough_resource(id : String):
 	match id:
-		"_beehive":
+		"pollen_beehive":
 			return true
 		"honey_beehive":
 			return (total_pollen > 0) and (total_nectar > 0)
@@ -40,7 +40,7 @@ func has_enough_resource(id : String):
 
 func _on_ingredients_requested_started(id : String, amount : int):
 	match id:
-		"_beehive":
+		"pollen_beehive":
 			pass
 		"honey_beehive":
 			lose_pollen(amount)

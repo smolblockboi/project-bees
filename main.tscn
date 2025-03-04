@@ -34,7 +34,7 @@ tile_set = SubResource("TileSet_ninj6")
 
 [node name="TileMap" type="TileMapLayer" parent="." node_paths=PackedStringArray("grid_cursor")]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAUAA8AAAAAAAAAAgATAA4AAAAAAAAAAQAUAAwAAQAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAAUAA8AAAAAAAAAAgATAA4AAAAAAAAABgAUAAwAAQAAAAAAAQASAA4AAAAAAAAACAATAA0AAAAAAAAACAATAA8AAAAAAAAACAA=")
 tile_set = ExtResource("1_72qnu")
 script = ExtResource("2_3f67f")
 grid_cursor = NodePath("../GridCursor")

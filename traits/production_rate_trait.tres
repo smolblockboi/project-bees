@@ -11,4 +11,4 @@ region = Rect2(0, 0, 16, 16)
 script = ExtResource("1_u42hj")
 trait_name = "production rate"
 trait_icon = SubResource("AtlasTexture_ui5rp")
-trait_value = 1.0
+trait_quantity = 1

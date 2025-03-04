@@ -32,9 +32,16 @@ func _on_hovered():
 	var new_tooltip_info : Dictionary 
 	if get_parent() is Blueprint:
 		new_tooltip_info["for"] = get_parent().blueprint_data.scene
+	elif get_parent() is Decoration:
+		new_tooltip_info = trait_handler.get_total_traits()
+	elif get_parent() is Beekeeper:
+		new_tooltip_info = trait_handler.get_total_traits()
 	else:
-		new_tooltip_info = trait_handler.get_total_traits_as_dict()
+		trait_handler.get_surrounding_object_traits()
+		new_tooltip_info = trait_handler.get_total_traits()
+	
 	new_tooltip_info["name"] = get_parent().name
+	
 	update_tooltip(new_tooltip_info)
 
 

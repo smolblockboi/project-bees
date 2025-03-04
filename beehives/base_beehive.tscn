@@ -1,16 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1gnoc020cdsm"]
+[gd_scene load_steps=14 format=3 uid="uid://c1gnoc020cdsm"]
 
-[ext_resource type="Texture2D" uid="uid://ncgwr832qxet" path="res://beehives/beehives.aseprite" id="1_14cmh"]
-[ext_resource type="Script" path="res://beehives/beehive.gd" id="2_lpcsj"]
-[ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="3_ap4ro"]
-[ext_resource type="PackedScene" uid="uid://b03kqrvl5vekl" path="res://traits/trait_handler.tscn" id="4_1u42e"]
-[ext_resource type="Script" path="res://components/production_timer.gd" id="4_3ftok"]
-[ext_resource type="PackedScene" uid="uid://bf40prwvhuoxh" path="res://bees/bees_particles.tscn" id="5_jan6q"]
-[ext_resource type="PackedScene" uid="uid://b67dhrr628m5u" path="res://components/adjacent_raycasts.tscn" id="6_tr2q2"]
+[ext_resource type="Texture2D" uid="uid://ncgwr832qxet" path="res://beehives/beehives.aseprite" id="1_yqgxq"]
+[ext_resource type="Script" path="res://beehives/beehive.gd" id="2_urrnc"]
+[ext_resource type="PackedScene" uid="uid://b2b32q4ahegjt" path="res://interact_button.tscn" id="3_25ple"]
+[ext_resource type="PackedScene" uid="uid://b03kqrvl5vekl" path="res://traits/trait_handler.tscn" id="4_r8jn5"]
+[ext_resource type="PackedScene" uid="uid://b67dhrr628m5u" path="res://components/adjacent_raycasts.tscn" id="5_ar5p8"]
+[ext_resource type="Script" path="res://traits/trait.gd" id="5_iitcr"]
+[ext_resource type="Script" path="res://components/production_timer.gd" id="6_avkc6"]
+[ext_resource type="PackedScene" uid="uid://bf40prwvhuoxh" path="res://bees/bees_particles.tscn" id="7_qdpfa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4duqo"]
-atlas = ExtResource("1_14cmh")
+atlas = ExtResource("1_yqgxq")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_60xb8"]
+script = ExtResource("5_iitcr")
+trait_name = "buzzing"
+trait_quantity = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m578"]
 bg_color = Color(0, 0, 0, 1)
@@ -31,29 +37,30 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dygcp"]
 size = Vector2(8, 8)
 
-[node name="Beehive" type="Sprite2D" node_paths=PackedStringArray("interact_button", "trait_handler", "production_timer")]
+[node name="BaseBeehive" type="Sprite2D" node_paths=PackedStringArray("interact_button", "trait_handler", "production_timer")]
 texture = SubResource("AtlasTexture_4duqo")
-script = ExtResource("2_lpcsj")
+script = ExtResource("2_urrnc")
 object_id = "_beehive"
 interact_button = NodePath("InteractButton")
 trait_handler = NodePath("TraitHandler")
 production_timer = NodePath("ProductionTimer")
 
-[node name="InteractButton" parent="." node_paths=PackedStringArray("trait_handler") instance=ExtResource("3_ap4ro")]
+[node name="InteractButton" parent="." node_paths=PackedStringArray("trait_handler") instance=ExtResource("3_25ple")]
 offset_left = -8.0
 offset_top = -8.0
 trait_handler = NodePath("../TraitHandler")
 
-[node name="TraitHandler" parent="." node_paths=PackedStringArray("adjacent_raycasts") instance=ExtResource("4_1u42e")]
+[node name="TraitHandler" parent="." node_paths=PackedStringArray("adjacent_raycasts") instance=ExtResource("4_r8jn5")]
 adjacent_raycasts = NodePath("../AdjacentRaycasts")
+base_traits = Array[ExtResource("5_iitcr")]([SubResource("Resource_60xb8")])
 
-[node name="AdjacentRaycasts" parent="." instance=ExtResource("6_tr2q2")]
+[node name="AdjacentRaycasts" parent="." instance=ExtResource("5_ar5p8")]
 mask = 2
 
 [node name="ProductionTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
-script = ExtResource("4_3ftok")
+script = ExtResource("6_avkc6")
 
 [node name="ResourceProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
@@ -74,7 +81,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_3m578")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mhqo2")
 show_percentage = false
 
-[node name="BeesParticles" parent="." instance=ExtResource("5_jan6q")]
+[node name="BeesParticles" parent="." instance=ExtResource("7_qdpfa")]
 unique_name_in_owner = true
 
 [node name="Area2D" type="Area2D" parent="."]

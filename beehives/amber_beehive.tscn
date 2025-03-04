@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://xyqb3r2p3sey"]
 
 [ext_resource type="Texture2D" uid="uid://ncgwr832qxet" path="res://beehives/beehives.aseprite" id="1_novkq"]
-[ext_resource type="PackedScene" uid="uid://c1gnoc020cdsm" path="res://beehives/beehive.tscn" id="1_nqr2v"]
+[ext_resource type="PackedScene" uid="uid://c1gnoc020cdsm" path="res://beehives/base_beehive.tscn" id="1_nqr2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lu87n"]
 atlas = ExtResource("1_novkq")
